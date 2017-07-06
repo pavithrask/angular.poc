@@ -1,0 +1,11 @@
+<ul [id]="isParent()? null : parentId">
+    <div *ngFor="let menuItem of menuItems">
+
+            <menu-item [parentId]="parentId" [menuItem]="menuItem" (menuItemClickedEvent)="onSelectMenuItem($event)"></menu-item>
+            <tree-view *ngIf="menuItem.menuItems != null" (menuItemSelectedEvent)="onSelectMenuItem($event)" [menuItems]="menuItem.menuItems"
+                [parentId]="menuItem.name"></tree-view>
+    
+    </div>
+</ul>
+
+
